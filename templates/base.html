@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>{{ title if title else 'ISHMP4' }}</title>
+  <meta name="description" content="ISHMP4 ile Instagram, TikTok, YouTube ve Facebook videolarını hızlıca önizle ve kaydet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  {% block head_extra %}{% endblock %}
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="{{ url_for('home') }}" class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-text">ISHMP4</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}#hero">Ana Sayfa</a>
+        <a href="{{ url_for('home') }}#features">Özellikler</a>
+        <a href="{{ url_for('about') }}">Hakkında</a>
+        <a href="{{ url_for('privacy') }}">Gizlilik</a>
+        <a href="{{ url_for('contact') }}" class="nav-cta">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 14px;">
+            <span class="brand-dot"></span>
+            <span class="brand-text">ISHMP4</span>
+          </div>
+          <p class="small-muted">
+            Modern, temiz ve hızlı video kaydetme deneyimi. Web sürümünde dosya cihazına indirilir.
+            APK sürümünde daha doğal galeri deneyimi için temel hazır olur.
+          </p>
+          <div class="footer-note">© 2026 ISHMP4. Tüm hakları saklıdır.</div>
+        </div>
+
+        <div>
+          <h3 style="margin-top:0;">Sayfalar</h3>
+          <div class="footer-links">
+            <a href="{{ url_for('home') }}">Ana Sayfa</a>
+            <a href="{{ url_for('about') }}">Hakkında</a>
+            <a href="{{ url_for('privacy') }}">Gizlilik Politikası</a>
+            <a href="{{ url_for('contact') }}">İletişim</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin-top:0;">İletişim</h3>
+          <div class="footer-links">
+            <a href="mailto:ishaksrks@gmail.com">ishaksrks@gmail.com</a>
+            <span class="small-muted">Geri bildirim, iş birliği ve teknik destek için.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

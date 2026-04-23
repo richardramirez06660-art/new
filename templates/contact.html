@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+  <main class="page-hero">
+    <div class="container contact-grid">
+      <div class="page-card">
+        <h1>İletişim</h1>
+        <p>
+          Geri bildirim, iş birliği veya teknik konu için aşağıdaki formu bırakabilir ya da doğrudan e-posta
+          üzerinden ulaşabilirsin.
+        </p>
+        <p>
+          <a class="inline-mail" href="mailto:ishaksrks@gmail.com">✉️ ishaksrks@gmail.com</a>
+        </p>
+        <p class="small-muted">
+          Formu gönderdiğinde mesaj doğrudan e-posta olarak iletilir.
+        </p>
+      </div>
+
+      <div class="page-card">
+        {% if request.args.get('sent') == '1' %}
+          <div class="alert alert-success">
+            Mesajın gönderildi. Sana döneceğim.
+          </div>
+        {% endif %}
+
+        <form action="https://formspree.io/f/mykbvvor" method="POST" class="form-grid">
+          <input type="hidden" name="_next" value="https://ishmp4.onrender.com/contact?sent=1">
+
+          <div class="field">
+            <label for="name">Ad Soyad</label>
+            <input id="name" type="text" name="name" placeholder="Adını yaz" required>
+          </div>
+
+          <div class="field">
+            <label for="email">E-posta</label>
+            <input id="email" type="email" name="email" placeholder="ornek@mail.com" required>
+          </div>
+
+          <div class="field">
+            <label for="message">Mesaj</label>
+            <textarea id="message" name="message" placeholder="Ne söylemek istiyorsan buraya yaz" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Mesajı Gönder</button>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}
